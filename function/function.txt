@@ -1,0 +1,47 @@
+* Definition (Simple words)
+
+=> A function is a block of code that:
+
+=> performs a specific task
+
+=> runs only when it is called
+
+=> can be reused many times
+
+=> Instead of writing the same logic again and again, we put it inside a function.
+
+=> Basic Syntax of Function
+def function_name():
+    statements
+
+Example:
+def greet():
+    print("Hello, Welcome to Python")
+
+
+=> 🔷 Parts of a Function (Very Important)
+def add(a, b):
+    c = a + b
+    return c
+*****************************
+Part	    Meaning
+def     	Keyword to define function
+add	        Function name
+(a, b)	    Parameters (inputs)
+return	    Sends result back
+*******************************
+
+Rule:
+
+print() → only shows output
+
+return → gives value back
+
+*** Types of Functions in Python
+1.build in function => print(),len(),type(),int()
+
+2.user define function
+    => Function Without Parameter & Without Return
+    => Function With Parameter & Without Return
+    => Function Without Parameter & With Return
+    => Function With Parameter & With Return (MOST USED)

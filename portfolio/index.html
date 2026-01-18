@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chetan Patil | Backend Developer | Python, Django, REST APIs</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Chetan Patil is a Backend Developer specializing in Python, Django, REST APIs, and SQL. Explore projects, skills, and contact details." />
+  <meta name="keywords" content="Backend Developer, Python Developer, Django Developer, REST API, SQL, Chetan Patil" />
+  <meta name="author" content="Chetan Patil" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Chetan Patil | Backend Developer" />
+  <meta property="og:description" content="Backend Developer skilled in Python, Django, REST APIs, and SQL." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chetan Patil | Backend Developer" />
+  <meta name="twitter:description" content="Backend Developer skilled in Python, Django, REST APIs, and SQL." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="profile_img1.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+ <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(15,23,42,0.85), rgba(30,58,138,0.85));
+  backdrop-filter: blur(14px);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+nav.scrolled {
+  background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(30,58,138,0.95));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+nav .logo {
+display: flex;
+  align-items: center;   /* vertical alignment */
+  gap: 10px;             /* space between image & name */
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+nav .logo img {
+  width: 36px;        /* small size */
+  height: 36px;
+  border-radius: 50%;
+  object-position: center;
+  object-fit: cover;
+  border: 1px solid #38bdf8;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+nav ul li a {
+  position: relative;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  transition: width 0.3s ease;
+}
+nav ul li a:hover::after,
+nav ul li a.active::after { width: 100%; }
+nav ul li a:hover,
+nav ul li a.active { color: #38bdf8; }
+
+.menu-toggle {
+  display: none; /* desktop hidden */
+  font-size: 1.8rem;
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(15,23,42,0.95);
+    backdrop-filter: blur(14px);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 15px;
+  }
+  nav ul.show { display: flex; }
+}
+
+/* ===== HERO SECTION ===== */
+header {
+  padding: 160px 40px 100px;
+}
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+.profile-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 4px solid #38bdf8;
+  box-shadow: 0 0 40px rgba(56,189,248,0.45);
+  display: block;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee, #818cf8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.hero-text p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 16px; }
+.tech-icons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.tech {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30,58,138,0.25);
+  border: 1px solid rgba(56,189,248,0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+.tech .icon { font-size: 1rem; }
+
+/* ===== HERO BUTTONS ===== */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn.primary {
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  color: #020617;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56,189,248,0.4);
+}
+.btn.secondary {
+  border: 1px solid rgba(56,189,248,0.6);
+  color: #38bdf8;
+}
+.btn.secondary:hover {
+  background: rgba(56,189,248,0.1);
+}
+
+@media (max-width: 768px) {
+  .hero-buttons { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+
+  header { padding: 120px 20px 80px; }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .profile-img { justify-self: center; margin-bottom: 20px; }
+}
+
+/* ===== PROJECT GRID ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.project-card {
+  background: linear-gradient(180deg, #0f172a, #1e3a8a);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.project-content {
+  padding: 20px;
+}
+.project-role {
+  color: #38bdf8;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.project-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+}
+.learn {
+  margin-top: 10px;
+  color: #cbd5f5;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  max-width: 1000px;
+  margin: auto;
+  padding: 80px 20px;
+}
+.show { opacity: 1; transform: translateY(0); }
+h2 { color: #38bdf8; margin-bottom: 20px; font-size: 1.8rem; }
+.card {
+  background: linear-gradient(90deg, #0f172a, #1e3a8a);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.badge {
+  display: inline-block;
+  background: #1e293b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  font-size: 0.9rem;
+}
+.contact a { color: #38bdf8; text-decoration: none; }
+
+/* ===== CONTACT FORM ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(56,189,248,0.3);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #94a3b8;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+footer {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ===== MOUSE FOLLOW GLOW ===== */
+.mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(56,189,248,0.35), rgba(56,189,248,0.15), transparent 70%);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+</style>
+</head>
+<body>
+<div class="mouse-glow"></div>
+
+<nav>
+  <div class="logo"><img src="profile_img1.jpg" alt=""> Chetan Patil</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <div class="hero">
+    <img src="profile_img1.jpg" alt="Chetan Patil" class="profile-img" />
+    <div class="hero-text">
+      <h1>Chetan Patil</h1>
+      <p class="hero-tag">I am a <span id="typing"></span></p>
+      <p style="color:#cbd5f5">
+  I build scalable, secure backend systems with Django & REST APIs.
+</p>
+
+      <div class="tech-icons">
+        <span class="tech"><span class="icon"><i class="fa-brands fa-python"></i></span>Python</span>
+        <span class="tech"><span class="icon"><i class="fa-solid fa-leaf"></i>
+</span>Django</span>
+        <span class="tech"><span class="icon"><i class="fa-solid fa-link"></i>
+</span>REST APIs</span>
+        <span class="tech"><span class="icon"><i class="fa-solid fa-database"></i></span>SQL</span>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="Chetan_Patil_resume (1).pdf" class="btn primary" target="_blank">📄 Resume</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cp7292637@gmail.com" class="btn secondary"><i class="fa-solid fa-envelope"></i>Email Me</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I am a <strong>Backend Developer</strong> and a <strong>BCA graduate</strong> with a strong foundation in server-side development and database design. I specialize in building scalable backend applications, developing RESTful APIs, and working with relational databases.
+    </p>
+    <p>
+      I have hands-on experience with <strong>Python, Django, SQL, and REST APIs</strong>, and I enjoy designing clean backend logic that is efficient, secure, and easy to maintain. I focus on writing readable code and following best practices in backend architecture.
+    </p>
+    <p>
+      I am a <strong>quick learner</strong> with good communication skills and a problem-solving mindset. I am actively looking for opportunities where I can contribute as a backend developer, learn from real-world projects, and grow professionally.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Programming & Backend</h3>
+      <span class="badge">C</span><span class="badge">C++</span><span class="badge">Python</span><span class="badge">Django</span><span class="badge">REST API</span>
+    </div>
+    <div class="card">
+      <h3>Database & Tools</h3>
+      <span class="badge">SQL</span><span class="badge">DBMS</span>
+    </div>
+    <div class="card">
+      <h3>Version Control</h3>
+      <span class="badge">Git</span><span class="badge">GitHub</span>
+    </div>
+    <div class="card">
+      <h3>Soft Skills</h3>
+      <span class="badge">Communication</span><span class="badge">Quick Learner</span><span class="badge">Problem Solving</span><span class="badge">Teamwork</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <img src="project-student.png" alt="Student Management System" class="project-img" />
+      <div class="project-content">
+        <h3>🎓 Student Management System</h3>
+        <p class="project-role">Role: Backend Developer</p>
+        <p>A backend-driven system for managing student records, authentication, and API-based data access.</p>
+
+        <ul>
+          <li>Built REST APIs using <strong>Python & Django</strong></li>
+          <li>Implemented CRUD operations and validations</li>
+          <li>Designed SQL database schema</li>
+        </ul>
+
+        <p class="learn"><strong>⭐ Key Learnings:</strong> API design, database relationships, backend validation</p>
+
+        <div class="project-actions">
+          <a href="https://github.com/chetan1821" target="_blank" class="btn secondary">🔗 GitHub</a>
+          <a href="#" class="btn secondary">🎥 Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <img src="project-shop.png" alt="Online Shopping Center" class="project-img" />
+      <div class="project-content">
+        <h3>🛒 Online Shopping Center</h3>
+        <p class="project-role">Role: Backend Developer</p>
+        <p>Final-year academic project focused on backend services for an e-commerce platform.</p>
+
+        <ul>
+          <li>Django-based backend for users & products</li>
+          <li>Secure SQL data storage</li>
+          <li>REST API endpoints for core features</li>
+        </ul>
+
+        <p class="learn"><strong>⭐ Key Learnings:</strong> Secure data handling, backend workflows, APIs</p>
+
+        <div class="project-actions">
+          <a href="https://github.com/chetan1821" target="_blank" class="btn secondary">🔗 GitHub</a>
+          <a href="#" class="btn secondary">🎥 Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <img src="project-api.png" alt="Backend Practice Projects" class="project-img" />
+      <div class="project-content">
+        <h3>⚙️ Backend Practice & API Projects</h3>
+        <p>A collection of small projects focused on strengthening backend logic and problem-solving.</p>
+
+        <ul>
+          <li>REST API practice projects</li>
+          <li>Authentication & DB connectivity</li>
+          <li>Logic building using C & C++</li>
+        </ul>
+
+        <p class="learn"><strong>⭐ Key Learnings:</strong> Backend fundamentals, logic building, APIs</p>
+
+        <div class="project-actions">
+          <a href="https://github.com/chetan1821" target="_blank" class="btn secondary">🔗 GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-grid">
+
+    <!-- Card 1: Contact Details -->
+    <div class="card">
+      <h3>Contact Details</h3>
+      <p>Feel free to reach out for backend development roles, freelance work, or collaboration.</p>
+      <p><strong><i class="fa-solid fa-envelope"></i>
+</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cp7292637@gmail.com">cp7292637@gmail.com</a></p>
+      <p><strong><i class="fa-solid fa-phone"></i>
+</strong> <a href="tel:+917228061014">+91 7228061014</a></p>
+      <p><strong><i class="fa-solid fa-location-dot"></i></strong> Surat , Gujarat</p>
+      <br>
+      <div class="contact-actions">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cp7292637@gmail.com" class="btn primary">✉️ Email Me</a>
+      </div>
+    </div>
+
+    <!-- Card 2: Profiles -->
+    <div class="card">
+      <h3>Profiles</h3>
+      <p><strong><i class="fa-brands fa-github"></i></strong> <a href="https://github.com/chetan1821" target="_blank">github.com/chetan1821</a></p>
+      <p><strong><i class="fa-brands fa-linkedin"></i></strong> <a href="https://www.linkedin.com/in/chetan-patil-a604a3229/" target="_blank">linkedin.com/in/chetan-patil</a></p>
+      <p><strong>Resume:</strong> <a href="Chetan_Patil_resume (1).pdf" target="_blank">Download PDF</a></p>
+    </div>
+
+    <!-- Card 3: Send a Message -->
+     <div class="card">
+      <h3>Send a Message</h3>
+      <p>Fill out the form below and your message will be sent directly to my email.</p>
+      <form action="mailto:cp7292637@gmail.com" method="post" enctype="text/plain" class="contact-form">
+        <input type="text" name="Name" placeholder="Your Name" required />
+        <input type="email" name="Email" placeholder="Your Email" required />
+        <input type="text" name="Subject" placeholder="Subject" required />
+        <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn primary">📩 Send Message</button>
+      </form>
+    </div>
+    <!-- Card 3: Send a Message -->
+<!-- <div class="card">
+  <h3>Send a Message</h3>
+  <p>
+    Fill out the form and your message will be sent directly to my email.
+  </p>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfsiniUaO_UYZKaCV5xTCDkkjfhn5g3-MkuWhgYeJhcrn2eMw/viewform"
+    target="_blank"
+    class="btn primary"
+  >
+    📝 Open Contact Form
+  </a>
+</div> -->
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Chetan Patil. All rights reserved.
+</footer>
+
+<script>
+  // Navbar background change on scroll
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector("nav");
+    if (window.scrollY > 50) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.querySelector('nav ul').classList.toggle('show');
+  }
+
+  // Active link on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('section, footer').forEach(el => observer.observe(el));
+// Typing animation
+  const roles = ["Backend Developer", "Python Developer", "Django Developer", "REST API Engineer"]; 
+  let roleIndex = 0;
+  let charIndex = 0;
+  const typingElement = document.getElementById("typing");
+  const typingSpeed = 120;
+  const erasingSpeed = 80;
+  const delayBetween = 1500;
+
+  function typeRole() {
+    if (charIndex < roles[roleIndex].length) {
+      typingElement.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeRole, typingSpeed);
+    } else {
+      setTimeout(eraseRole, delayBetween);
+    }
+  }
+
+  function eraseRole() {
+    if (charIndex > 0) {
+      typingElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(eraseRole, erasingSpeed);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeRole, typingSpeed);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeRole, 500);
+  });
+
+  // Mouse-follow glow effect
+  const glow = document.querySelector('.mouse-glow');
+  window.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+</script>
+</body>
+</html>
